@@ -1,8 +1,20 @@
 def has_negatives(a):
 
-    """
-    YOUR CODE HERE
-    """
+    # use cache since up to 5,000,000 elements
+    # set empty arr to append to
+    cache = {}
+    result = []
+
+    # cache negative numbers to compare to ints
+    for i in a:
+        if i < 0:
+            cache[i] = i
+
+    # if in cache and in a, append number to arr
+    for i in a:
+        if i > 0:
+            if -i in cache:
+                result.append(i)
 
     return result
 
